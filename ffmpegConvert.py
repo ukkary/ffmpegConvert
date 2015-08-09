@@ -1,6 +1,10 @@
+import os
+import subprocess
+
 
 def convert(url):
-	pass
+
+	"ffmpeg -i input/wol.mp4 output/wol.mp4"
 	
 def get_path():
 	pass
