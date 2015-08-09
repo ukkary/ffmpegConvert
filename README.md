@@ -10,5 +10,5 @@ and
 ``` brew install terminal-notifier ```
 
 ## usage
-inputファイルの中にフォルダもしくはファイルを配置
+inputファイルの中にフォルダもしくはファイルを配置後   
 ```python ffmpegConvert.py```   
