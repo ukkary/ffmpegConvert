@@ -22,20 +22,16 @@ def convert(url):
 		alert(3, "e")
 		return False
 	
-def get_path(num):
+def get_path(path):
 	lis = []
 	subdir = []
 
-	if num == 0:
-		for root, dir, files in os.walk("input"):
-			for name in files:
-				subdir.append(os.path.join(root, name))
-	elif num == 1:
-		for root, dir, files in os.walk("output"):
-			for name in files:
-				subdir.append(os.path.join(root, name))
-  	for dir in subdir:
-  		if dir.split(".")[-1] == "mp4":
+	for root, dir, files in os.walk(path):
+		for name in files:
+			subdir.append(os.path.join(root, name))
+				
+  	for d in subdir:
+  		if d.split(".")[-1] == "mp4":
   			s = dir.split("/")[1:]
   			lis.append("/".join(s))
  	return lis
@@ -51,8 +47,8 @@ def alert(x, name):
 		commands.getoutput(base + "   変換に失敗しました'")
 		
 if __name__ == "__main__":
-	inp = get_path(0)
-	out = get_path(1)
+	inp = get_path("input")
+	out = get_path("output")
 	argv = sys.argv
 	
  	while True:
