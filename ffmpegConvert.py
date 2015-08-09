@@ -63,7 +63,7 @@ if __name__ == "__main__":
 	out = get_path(1)
 	
  	while True:
- 		output.append("e")
+ 		out.append("e")
  		if len(inp) < len(out):
  			break
 
