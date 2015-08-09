@@ -1,15 +1,10 @@
 #!/usr/bin/python
 #coding:utf-8
 
-
 import os
 import sys
-import os.path
-import commands
-
 
 try_flag = False
-count = 0
 
 def convert(url):
 	try:
@@ -17,14 +12,15 @@ def convert(url):
 		source = "/".join(ss)
 	except:
 		source = url.split(".")[:-1][0]
-		
+	
 	callback = commands.getstatusoutput("sh ./convert.sh " + url + " " + source)
-	alert(1, url)
 	
  	if callback[0] == 0:
+ 		alert(1, url)
 		return True
 	else:
 		alert(3, "e")
+		return False
 	
 def get_path(num):
 	lis = []
@@ -61,6 +57,7 @@ def alert(x, name):
 if __name__ == "__main__":
 	inp = get_path(0)
 	out = get_path(1)
+	argv = sys.argv
 	
  	while True:
  		out.append("e")
