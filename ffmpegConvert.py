@@ -20,6 +20,7 @@ def convert(url):
 		
 	callback = commands.getstatusoutput("sh ./convert.sh " + url + " " + source)
 	alert(1, url)
+	
  	if callback[0] == 0:
 		return True
 	else:
@@ -47,16 +48,15 @@ def get_path(num):
  	return lis
 	
 def alert(x, name):
+	base = "terminal-notifier -title 'ffmpegConverter' -message '"
 	if x == 1:
-		base_b = "terminal-notifier -title 'ffmpegConverter' -message '"
-		base_e = "  が変換されました'"
-		commands.getoutput(base_b + name + base_e)
+		commands.getoutput(base + name + "  が変換されました'")
 		
 	if x == 2:
-		base_b = "terminal-notifier -title 'ffmpegConverter' -message '変換するものがありません'"
+		commands.getoutput(base + "   変換するものがありません'")
 		
 	if x == 3:
-		base_b = "terminal-notifier -title 'ffmpegConverter' -message '変換に失敗しました'"
+		commands.getoutput(base + "   変換に失敗しました'")
 		
 if __name__ == "__main__":
 	input = get_path(0)
