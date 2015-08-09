@@ -7,8 +7,8 @@ import commands
 
 def convert(url):
 	try:
-		ss = url.split(".")[:-1][0].split("/")[:-1]
-		source = "/".join(ss)
+		s = url.split(".")[:-1][0].split("/")[:-1]
+		source = "/".join(s)
 	except:
 		source = url.split(".")[:-1][0]
 		
