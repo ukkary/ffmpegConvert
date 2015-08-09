@@ -59,16 +59,16 @@ def alert(x, name):
 		commands.getoutput(base + "   変換に失敗しました'")
 		
 if __name__ == "__main__":
-	input = get_path(0)
-	output = get_path(1)
+	inp = get_path(0)
+	out = get_path(1)
 	
  	while True:
  		output.append("e")
- 		if len(input) < len(output):
+ 		if len(inp) < len(out):
  			break
 
-	for i in range(len(input)):
-		if input[i] not in output:
-			convert(input[i])
+	for i in range(len(inp)):
+		if inp[i] not in out:
+			convert(inp[i])
 		else:
 			alert(2, "e")
