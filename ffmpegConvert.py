@@ -53,7 +53,7 @@ if __name__ == "__main__":
 	out = get_path("output")
 	
  	while True:
- 		out.append("e")
+ 		out.append("null")
  		if len(inp) < len(out):
  			break
 
