@@ -14,9 +14,7 @@ def convert(url):
 		source = "/".join(ss)
 	except:
 		source = url.split(".")[:-1][0]
-	
 	callback = commands.getstatusoutput("sh ./convert.sh " + url + " " + source)
-	
  	if callback[0] == 0:
  		alert(1, url)
 		return True
@@ -32,27 +30,23 @@ def get_path(num):
 		for root, dir, files in os.walk("input"):
 			for name in files:
 				subdir.append(os.path.join(root, name))
-				
 	elif num == 1:
 		for root, dir, files in os.walk("output"):
 			for name in files:
 				subdir.append(os.path.join(root, name))
-	
   	for dir in subdir:
   		if dir.split(".")[-1] == "mp4":
   			s = dir.split("/")[1:]
   			lis.append("/".join(s))
-
  	return lis
 	
 def alert(x, name):
 	base = "terminal-notifier -title 'ffmpegConverter' -message '"
+	
 	if x == 1:
 		commands.getoutput(base + name + "  が変換されました'")
-		
 	if x == 2:
-		commands.getoutput(base + "   変換が終わりました'")
-		
+		commands.getoutput(base + "   変換が終わりました'")	
 	if x == 3:
 		commands.getoutput(base + "   変換に失敗しました'")
 		
