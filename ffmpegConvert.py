@@ -32,7 +32,7 @@ def get_path(base_path):
   	for d in sub_dir:
   		if d.split(".")[-1] == "mp4":
   			s = d.split("/")[1:]
-  			lis.append("/".join(s))
+  			dir_list.append("/".join(s))
 
  	return dir_list
 	
