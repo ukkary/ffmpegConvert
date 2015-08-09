@@ -10,4 +10,7 @@ and
 ``` brew install terminal-notifier ```
 
 ## usage
+inputファイルの中にフォルダもしくはファイルを配置
 ```python ffmpegConvert.py```   
+もしくは   
+ffmpegConvert.pyを右クリックし、python2系から実行
