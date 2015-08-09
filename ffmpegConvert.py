@@ -5,18 +5,18 @@ import os
 import commands
 
 
-def convert(url):
+def convert_video(url):
 	try:
-		source = "/".join(url.split(".")[:-1][0].split("/")[:-1])
+		directory = "/".join(url.split(".")[:-1][0].split("/")[:-1])
 	except:
-		source = url.split(".")[:-1][0]
+		directory = url.split(".")[:-1][0]
 		
-	callback = commands.getstatusoutput("sh ./convert.sh " + url + " " + source)
+	callback = commands.getstatusoutput("sh ./convert.sh " + url + " " + directory)
 	
  	if callback[0] == 0:
- 		alert(1, url)
+ 		notify(1, url)
 	else:
-		alert(2, url)
+		notify(2, url)
 
 def get_path(base_path):
 	dir_list = []
@@ -32,24 +32,24 @@ def get_path(base_path):
 
  	return dir_list
 	
-def alert(x, name):
+def notify(x, src):
 	base = "terminal-notifier -title 'ffmpegConverter' -message '"
 	
 	if x == 1:
-		commands.getoutput(base + name + "  が変換されました'")	
+		commands.getoutput(base + src + "  が変換されました'")	
 	if x == 2:
-		commands.getoutput(base + name + "  の変換に失敗しました'")
+		commands.getoutput(base + src + "  の変換に失敗しました'")
 	if x == 3:
 		commands.getoutput(base + "  変換が終わりました'")	
 	if x == 4:
 		commands.getoutput(base + "   変換できるものがありません")
 		
 if __name__ == "__main__":
-	inp = get_path("input")
-	out = get_path("output")
+	_in = get_path("input")
+	_out = get_path("output")
 
-	for i in range(len(inp)):
-		if inp[i] not in out:
-			convert(inp[i])
+	for i in range(len(_in)):
+		if _in[i] not in _out:
+			convert_video(_in[i])
 
-	#alert(3, "null")
+	#notify(3, "null")
