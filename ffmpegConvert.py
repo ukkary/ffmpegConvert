@@ -3,6 +3,8 @@
 
 import os
 import sys
+import commands
+
 
 try_flag = False
 
@@ -49,7 +51,7 @@ def alert(x, name):
 		commands.getoutput(base + name + "  が変換されました'")
 		
 	if x == 2:
-		commands.getoutput(base + "   変換するものがありません'")
+		commands.getoutput(base + "   変換が終わりました'")
 		
 	if x == 3:
 		commands.getoutput(base + "   変換に失敗しました'")
